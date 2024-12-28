@@ -20,15 +20,15 @@ def relative_to_assets(path: str) -> Path:
 
 window = Tk()
 
-window.geometry("1440x1024")
+window.geometry("926x707")
 window.configure(bg = "#FFFFFF")
 
 
 canvas = Canvas(
     window,
     bg = "#FFFFFF",
-    height = 1024,
-    width = 1440,
+    height = 707,
+    width = 926,
     bd = 0,
     highlightthickness = 0,
     relief = "ridge"
@@ -38,9 +38,33 @@ canvas.place(x = 0, y = 0)
 image_image_1 = PhotoImage(
     file=relative_to_assets("image_1.png"))
 image_1 = canvas.create_image(
-    196.0,
-    511.0,
+    463.0,
+    364.0,
     image=image_image_1
+)
+
+image_image_2 = PhotoImage(
+    file=relative_to_assets("image_2.png"))
+image_2 = canvas.create_image(
+    465.0,
+    51.32911682128906,
+    image=image_image_2
+)
+
+image_image_3 = PhotoImage(
+    file=relative_to_assets("image_3.png"))
+image_3 = canvas.create_image(
+    233.99999999999997,
+    49.00000190734821,
+    image=image_image_3
+)
+
+image_image_4 = PhotoImage(
+    file=relative_to_assets("image_4.png"))
+image_4 = canvas.create_image(
+    900.0,
+    64.99999642372177,
+    image=image_image_4
 )
 
 button_image_1 = PhotoImage(
@@ -53,10 +77,10 @@ button_1 = Button(
     relief="flat"
 )
 button_1.place(
-    x=137.0,
-    y=416.0510559082031,
-    width=116.4375,
-    height=34.94894790649414
+    x=795.0,
+    y=12.0,
+    width=50.0,
+    height=65.0
 )
 
 button_image_2 = PhotoImage(
@@ -69,10 +93,19 @@ button_2 = Button(
     relief="flat"
 )
 button_2.place(
-    x=134.0,
-    y=547.6015625,
-    width=122.8828125,
-    height=33.3984375
+    x=391.0,
+    y=14.0,
+    width=50.0,
+    height=65.0
+)
+
+canvas.create_text(
+    441.0,
+    27.0,
+    anchor="nw",
+    text="DECEMBER 30, 2024",
+    fill="#202020",
+    font=("Katibeh Regular", 40 * -1)
 )
 
 button_image_3 = PhotoImage(
@@ -85,10 +118,10 @@ button_3 = Button(
     relief="flat"
 )
 button_3.place(
-    x=114.0,
-    y=677.0625,
-    width=164.1484375,
-    height=34.40625
+    x=43.0,
+    y=115.0,
+    width=100.0,
+    height=100.0
 )
 
 button_image_4 = PhotoImage(
@@ -101,10 +134,10 @@ button_4 = Button(
     relief="flat"
 )
 button_4.place(
-    x=46.0,
-    y=835.0,
-    width=92.15689086914062,
-    height=92.15689086914062
+    x=43.0,
+    y=235.0,
+    width=100.0,
+    height=100.0
 )
 
 button_image_5 = PhotoImage(
@@ -117,10 +150,10 @@ button_5 = Button(
     relief="flat"
 )
 button_5.place(
-    x=150.15692138671875,
-    y=835.0,
-    width=92.15689086914062,
-    height=92.15689086914062
+    x=43.0,
+    y=355.0,
+    width=100.0,
+    height=100.0
 )
 
 button_image_6 = PhotoImage(
@@ -133,47 +166,10 @@ button_6 = Button(
     relief="flat"
 )
 button_6.place(
-    x=254.31378173828125,
-    y=835.0,
-    width=92.15689086914062,
-    height=92.15689086914062
-)
-
-image_image_2 = PhotoImage(
-    file=relative_to_assets("image_2.png"))
-image_2 = canvas.create_image(
-    869.0,
-    150.0,
-    image=image_image_2
-)
-
-entry_image_1 = PhotoImage(
-    file=relative_to_assets("entry_1.png"))
-entry_bg_1 = canvas.create_image(
-    869.5,
-    584.0,
-    image=entry_image_1
-)
-entry_1 = Entry(
-    bd=0,
-    bg="#FFFFFF",
-    fg="#000716",
-    highlightthickness=0
-)
-entry_1.place(
-    x=366.0,
-    y=222.0,
-    width=1007.0,
-    height=722.0
-)
-
-canvas.create_text(
-    402.0,
-    135.0,
-    anchor="nw",
-    text="December 25, 2024",
-    fill="#FFEEEE",
-    font=("Koulen Regular", 64 * -1)
+    x=43.0,
+    y=475.0,
+    width=100.0,
+    height=100.0
 )
 
 button_image_7 = PhotoImage(
@@ -186,10 +182,10 @@ button_7 = Button(
     relief="flat"
 )
 button_7.place(
-    x=1227.0,
-    y=104.0,
-    width=122.00001525878906,
-    height=92.0
+    x=43.0,
+    y=595.0,
+    width=100.0,
+    height=100.0
 )
 window.resizable(False, False)
 window.mainloop()
