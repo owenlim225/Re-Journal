@@ -3,9 +3,6 @@ from datetime import datetime, timedelta
 from tkinter import Canvas, Button, PhotoImage, messagebox
 import tkinter as tk
 
-import function_list as function
-
-
 class MyApp(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -71,7 +68,7 @@ class MyApp(tk.Tk):
             width=42,
             font=("Corbel", 25, "bold", "italic"),
             wrap=tk.WORD,
-            bg="#F0F0F0",  
+            bg="#E9E9E9",  
             fg="#212121",  
             borderwidth=0,
             highlightthickness=0
@@ -129,6 +126,7 @@ class MyApp(tk.Tk):
 
     def create_buttons(self):
         self.btn_past_img = PhotoImage(file=self.relative_to_assets("btn_past.png"))
+        self.btn_past_active_img = PhotoImage(file=self.relative_to_assets("btn_past_active.png"))
         self.btn_past = Button(
             image=self.btn_past_img,
             borderwidth=0,
@@ -162,6 +160,7 @@ class MyApp(tk.Tk):
         self.btn_search.place(x=43.0, y=235.0, width=100.0, height=100.0)
 
         self.btn_write_img = PhotoImage(file=self.relative_to_assets("btn_write.png"))
+        self.btn_write_active_img = PhotoImage(file=self.relative_to_assets("btn_write_active.png"))
         self.btn_write = Button(
             image=self.btn_write_img,
             borderwidth=0,
@@ -203,7 +202,13 @@ class MyApp(tk.Tk):
         print("btn_search clicked")
 
     def command_btn_write(self):
-        function.add_entry_win(self)
+        if self.text_box.cget("state") == tk.NORMAL:
+            self.text_box.config(state=tk.DISABLED)
+            self.btn_write.config(image=self.btn_write_img)
+        else:
+            self.text_box.config(state=tk.NORMAL)
+            self.btn_write.config(image=self.btn_write_active_img)
+
 
     def command_btn_location(self):
         print("btn_location clicked")
@@ -212,7 +217,10 @@ class MyApp(tk.Tk):
         print("btn_export clicked")
 
     def command_btn_past(self):
-        print("btn_past clicked")
+        if self.text_box.cget("state") == tk.NORMAL:
+            self.btn_past.config(image=self.btn_past_img)
+        else:
+            self.btn_past.config(image=self.btn_past_active_img)
 
     def command_btn_date_forward(self):
         current = datetime.strptime(self.current_date.get(), "%B %d, %Y")
