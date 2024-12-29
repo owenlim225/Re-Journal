@@ -66,11 +66,11 @@ class MyApp(tk.Tk):
         self.lbl_date = tk.Label(
             self.canvas,
             textvariable=self.current_date,
-            font=("katibeh", 17, "bold"),
+            font=("katibeh", 25, "bold"),
             fg="#1E1F1E",
             bg="#F0F0F0",
         )
-        self.lbl_date.place(x=288.0, y=28.0, anchor="nw")
+        self.lbl_date.place(x=310.0, y=25.0, anchor="nw")
 
         # Date forward button
         self.btn_date_forward_img = PhotoImage(
