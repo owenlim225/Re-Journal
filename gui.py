@@ -3,6 +3,8 @@ from datetime import datetime, timedelta
 from tkinter import Canvas, Button, PhotoImage, messagebox
 import tkinter as tk
 
+import function_list as function
+
 
 class MyApp(tk.Tk):
     def __init__(self):
@@ -59,6 +61,28 @@ class MyApp(tk.Tk):
         self.top_frame_img = PhotoImage(file=self.relative_to_assets("top_frame_img.png"))
         self.canvas.create_image(465.0, 51.33, image=self.top_frame_img)
 
+
+
+        
+        # Add a text box (multiline text widget) over the canvas with background matching the canvas
+        self.text_box = tk.Text(
+            self.canvas,
+            height=14,
+            width=42,
+            font=("Corbel", 25, "bold", "italic"),
+            wrap=tk.WORD,
+            bg="#F0F0F0",  
+            fg="#212121",  
+            borderwidth=0,
+            highlightthickness=0
+        )
+        self.text_box.place(x=153.0, y=126.0, anchor="nw")
+        
+        
+
+
+        
+        
         # Date Label
         self.current_date = tk.StringVar()
         self.current_date.set(datetime.now().strftime("%B %d, %Y"))
@@ -179,7 +203,7 @@ class MyApp(tk.Tk):
         print("btn_search clicked")
 
     def command_btn_write(self):
-        print("btn_write clicked")
+        function.add_entry_win(self)
 
     def command_btn_location(self):
         print("btn_location clicked")
