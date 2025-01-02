@@ -3,6 +3,10 @@ from datetime import datetime, timedelta
 from tkinter import Canvas, Button, PhotoImage, messagebox
 import tkinter as tk
 
+
+from db import DatabaseManager  # Import the database manager
+
+
 class MyApp(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -10,6 +14,10 @@ class MyApp(tk.Tk):
         # Path directory to access assets
         self.OUTPUT_PATH = Path(__file__).parent
         self.ASSETS_PATH = self.OUTPUT_PATH / "assets"
+
+        # Initialize database manager
+        self.db_manager = DatabaseManager(self.OUTPUT_PATH / "text_entries.db")
+
 
         # Initialize window
         self.geometry("926x707")
@@ -203,6 +211,11 @@ class MyApp(tk.Tk):
 
     def command_btn_write(self):
         if self.text_box.cget("state") == tk.NORMAL:
+            # Save content to the database
+            content = self.text_box.get("1.0", tk.END).strip()
+            if content:
+                self.db_manager.save_text(content)
+
             self.text_box.config(state=tk.DISABLED)
             self.btn_write.config(image=self.btn_write_img)
         else:
